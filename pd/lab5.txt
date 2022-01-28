@@ -1,0 +1,115 @@
+//zad 1
+import java.util.ArrayList;
+public class Main {
+
+    public static void main(String[] args) {
+	ArrayList<Integer> a = new ArrayList<Integer>();
+	a.add(1);
+	a.add(2);
+	a.add(3);
+	ArrayList<Integer> b = new ArrayList<Integer>();
+	b.add(3);
+	b.add(4);
+	b.add(5);
+	ArrayList<Integer> c = append(a,b);
+	System.out.println(c);
+    }
+    public static ArrayList<Integer> append(ArrayList<Integer> a, ArrayList<Integer> b)
+	{
+		a.addAll(b);
+		return a;
+	}
+}
+//zad 2 
+import java.util.ArrayList;
+public class Main {
+
+    public static ArrayList<Integer> merge(ArrayList<Integer> a,ArrayList<Integer> b)
+    {
+        ArrayList<Integer> wynik = new ArrayList<Integer>();
+        for(int i=0;i<b.size();i++)
+        {
+            if(i<a.size()) wynik.add(a.get(i));
+            if(i<b.size()) wynik.add(b.get(i));
+        }
+        return wynik;
+
+    }
+    public static void main(String[] args) {
+	ArrayList<Integer> a = new ArrayList<Integer>();
+	a.add(1);
+	a.add(2);
+	a.add(3);
+	ArrayList<Integer> b = new ArrayList<Integer>();
+	b.add(3);
+	b.add(4);
+	b.add(5);
+	ArrayList<Integer> c = append(a,b);
+	System.out.println(c);
+    }
+}
+//zad 3 
+import java.util.ArrayList;
+public class Main {
+
+    public static ArrayList<Integer> mergeSorted(ArrayList<Integer> a,ArrayList<Integer> b)
+    {
+    a.addAll(b);
+    Collections.sort(a);
+    return a;
+    }
+    public static void main(String[] args) {
+	ArrayList<Integer> a = new ArrayList<Integer>();
+	a.add(1);
+	a.add(2);
+	a.add(3);
+	ArrayList<Integer> b = new ArrayList<Integer>();
+	b.add(3);
+	b.add(4);
+	b.add(5);
+	ArrayList<Integer> c = mergeSorted(a,b);
+	System.out.println(c);
+    }
+}
+//zad 4 
+
+
+import java.util.ArrayList;
+public class Main {
+    public static ArrayList<Integer> reversed(ArrayList<Integer> a)
+    {
+       ArrayList<Integer> wynik = new ArrayList<Integer>();
+        for(int i = a.size()-1;i>=0;i--)
+        {
+           wynik.add(a.get(i));
+        }
+        return wynik;
+    }
+    public static void main(String[] args) {
+	ArrayList<Integer> a = new ArrayList<Integer>();
+	a.add(1);
+	a.add(2);
+	a.add(3);
+	ArrayList<Integer> b = reversed(a);
+	System.out.println(b);
+    }
+}
+//zad 5 
+import java.util.ArrayList;
+public class Main {
+
+    public static void reverse(ArrayList<Integer> a)
+    {
+        for(int i=a.size()-1;i>=0;i--)
+        {
+           System.out.print(a.get(i)+ " ");
+        }
+    }
+    public static void main(String[] args) {
+        ArrayList<Integer> a = new ArrayList<Integer>();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+        reverse(a);
+    }
+}

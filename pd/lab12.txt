@@ -1,0 +1,166 @@
+//zad 1
+import java.util.*;
+
+public class Main{
+
+public static void main(String args[])
+{
+    
+    Scanner i = new Scanner(System.in);
+    Scanner i2 = new Scanner(System.in);
+    Scanner i3 = new Scanner(System.in);
+    int choice;
+   
+    PriorityQueue<String> que = new PriorityQueue<String>();
+  do{
+    System.out.print("1.Dodaj"+"\n");
+    System.out.print("2.Następne"+"\n");
+    System.out.print("3.Wypisz"+"\n");
+    System.out.print("4.Zakończ"+"\n");
+    choice = i.nextInt();
+    switch(choice)
+    {
+        case 1:
+        System.out.print("desc:");
+        String opis = in2.nextLine();
+        que.add(opis);
+        break;
+        case 2:
+        que.remove();
+        break;
+        case 3:
+        System.out.print("actual "+que + "\n");
+        break;
+        case 4:
+        System.exit(0);
+    }
+    }while(choice!=4);
+    i.close();
+    i2.close();
+    i3.close();
+}
+}
+//zad 2
+import java.util.*;
+public class Main {
+    public static void main(String args[])
+    {
+        Scanner i = new Scanner(System.in);
+        Scanner i2 = new Scanner(System.in);
+        Scanner i3 = new Scanner(System.in);
+        Scanner i4 = new Scanner(System.in);
+        Scanner i5 = new Scanner(System.in);
+        Scanner i6 = new Scanner(System.in);
+        int choice;
+        HashMap<String, String> mapa = new HashMap<String, String>();
+        do{
+            System.out.print("1.Dodaj"+"\n");
+            System.out.print("2.Usuń"+"\n");
+            System.out.print("3.Zmień"+"\n");
+            System.out.print("4.Wypisz"+"\n");
+            System.out.print("0.Zakończ"+"\n");
+            choice = i.nextInt();
+            switch(choice)
+            {
+                case 1:
+                System.out.print("Imię:"+"\n");
+                String imie = i2.nextLine();
+                System.out.print("Ocena:"+"\n");
+                String ocena = i3.nextLine();
+                mapa.put(imie,ocena);
+                break;
+                case 2:
+                System.out.print("Imię"+"\n");
+                String imie2 = i4.nextLine();
+                mapa.remove(imie2);
+                break;
+                case 3:
+                System.out.print("Imię"+"\n");
+                String imie3 = i5.nextLine();
+                System.out.print("Ocena zmieniona"+"\n");
+                String ocena2 = i6.nextLine();
+                mapa.replace(imie3,ocena2);
+                break;
+                case 4:
+                System.out.print(mapa+"\n");
+                break;
+                case 0:
+                System.exit(0);
+            }
+            }while(choice!=0);
+       i.close(); 
+       i2.close(); 
+       i3.close(); 
+       i4.close(); 
+       i5.close(); 
+       i6.close(); 
+    }
+}
+
+//zad 3
+import java.util.*;
+public class  Main {
+    public  static class Student
+    {
+        String imie;
+        String ocena;
+        public Student(String imie,String ocena)
+        {
+            this.imie = imie;
+            this.ocena = ocena;
+        }
+    }
+    public static void main(String args[])
+    {
+        Scanner i = new Scanner(System.in);
+        Scanner i2 = new Scanner(System.in);
+        Scanner i3 = new Scanner(System.in);
+        Scanner i4 = new Scanner(System.in);
+        Scanner i5 = new Scanner(System.in);
+        Scanner i6 = new Scanner(System.in);
+        int choice;
+        HashMap<String, String> mapa = new HashMap<String, String>();
+        do{
+            System.out.print("1.Dodaj"+"\n");
+            System.out.print("2.Usuń"+"\n");
+            System.out.print("3.Zmień"+"\n");
+            System.out.print("4.Wypisz"+"\n");
+            System.out.print("0.Zakończ"+"\n");
+            choice = i.nextInt();
+            switch(choice)
+            {
+                case 1: 
+                System.out.print("Imię:"+"\n");
+                String imie = i2.nextLine();
+                System.out.print("Ocena:"+"\n");
+                String ocena = i3.nextLine();
+                Student student = new Student(imie, ocena);
+                mapa.put(student.imie,student.ocena);
+                break;
+                case 2:
+                System.out.print("Imię"+"\n");
+                String imie2 = i4.nextLine();
+                mapa.remove(imie2);
+                break;
+                case 3:
+                System.out.print("Imię"+"\n");
+                String imie3 = i5.nextLine();
+                System.out.print("Ocena"+"\n");
+                String ocena2 = i6.nextLine();
+                mapa.replace(imie3,ocena2);
+                break; 
+                case 4:
+                System.out.print(mapa+"\n");
+                break;
+                case 0:
+                System.exit(0);   
+            }
+            }while(choice!=0);
+       i.close(); 
+       i2.close(); 
+       i3.close(); 
+       i4.close(); 
+       i5.close(); 
+       i6.close(); 
+    }
+}

@@ -1,0 +1,199 @@
+//zad 1abc
+package pl.Deptuła.Piotr;
+import java.time.*;
+
+class TestOsoba
+{
+    public static void main(String[] args)
+    {
+        Osoba[] ludzie = new Osoba[2];
+        String[] imiona = new String[2];
+        imiona[0]="waz";
+        imiona[1]="zeczny";
+        String[] imiona2 = new String[2];
+        imiona2[0]="waze";
+        imiona2[1]="rzedcze";
+        ludzie[0] = new Pracownik(imiona, "Aras",LocalDate.of(2020, 1, 8),true,LocalDate.of(2010, 11, 12),2000);
+        ludzie[1] = new Student(imiona2,"War", "mechanik",LocalDate.of(2021, 11, 1),false,4.47);
+        ludzie[1].getplec();
+        ludzie[1].getOpis();
+        ludzie[1].getplec();
+        ludzie[0].getplec();
+        ludzie[0].getOpis();
+        System.out.println(ludzie[0].getplec());
+        System.out.println(ludzie[0].getdate());
+        System.out.println(ludzie[0].getOpis());
+        System.out.println(ludzie[1].getplec());
+        System.out.println(ludzie[1].getOpis());
+        System.out.println(ludzie[1].getdate());
+
+        for (Osoba p : ludzie) {
+            System.out.println(p.getNazwisko() + ": " + p.getOpis());
+        }
+    }
+}
+
+abstract class Osoba
+{
+    public Osoba(String[] imiona,String nazwisko,LocalDate data , boolean plec)
+    {
+        this.imiona = imiona;
+        this.nazwisko = nazwisko;
+        this.data = data;
+        this.plec = plec;
+    }
+
+    public abstract String getOpis();
+
+    public String getNazwisko()
+    {
+        return nazwisko;
+    }
+    public String getimie()
+    {
+        return imiona[0]+" "+ imiona[1];
+    }
+    public LocalDate getdate()
+    {
+        return data;
+    }
+    public boolean getplec()
+    {
+        return plec;
+    }
+    private String[] imiona;
+    private String nazwisko;
+    private LocalDate data;
+    private boolean plec;
+}
+
+class Pracownik extends Osoba
+{
+    private LocalDate datap;
+    public Pracownik(String[] imiona, String nazwisko, LocalDate data , boolean plec , LocalDate datap, double pobory )
+    {
+        super(imiona,nazwisko,data,plec);
+        this.pobory = pobory;
+        this.datap=datap;
+    }
+
+    public double getPobory()
+    {
+        return pobory;
+    }
+    public LocalDate getdatazatrudnienia()
+    {
+        return datap;
+    }
+    public String getOpis()
+    {
+        return String.format("pracownik z pensją %.2f zł", pobory);
+    }
+
+    private double pobory;
+}
+
+class Student extends Osoba
+{
+    private String kierunek;
+    public Student(String[] imiona,String nazwisko,String kierunek,LocalDate data,boolean plec,double sredniaocen)
+    {
+        super(imiona,nazwisko,data,plec);
+        this.kierunek = kierunek;
+        this.sredniaocen=sredniaocen;
+    }
+
+    public String getOpis()
+    {
+        return "kierunek studiów: " + kierunek;
+    }
+    public double getSredniaocen()
+    {
+        return  sredniaocen;
+    }
+    private double sredniaocen;
+}
+
+//zad 3
+import java.time.LocalDate;
+abstract class Instrument{
+String producent;
+LocalDate dataProdukcji;
+public Instrument(String producent,LocalDate rokProdukcji)
+{
+    this.producent = producent;
+    this.dataProdukcji = rokProdukcji;
+}
+
+public String getProducent()
+{
+    return producent;
+}
+
+public abstract String dzwiek();
+public boolean equals(Instrument other)
+{
+        return producent.equals(other.producent) && dataProdukcji.equals(other.dataProdukcji);
+}
+public LocalDate getrokProdukcji()
+{
+        return dataProdukcji;
+}
+public String toString()
+{
+        return  producent + " "  + dataProdukcji;
+}
+}
+abstract class Flet extends Instrument
+{
+    public String dzwiek()
+    {
+        return "Habudabi na flecie ";
+    };
+    public Flet(String producent,LocalDate dataProdukcji)
+    {
+        super(producent,dataProdukcji);
+    }    
+}
+abstract class Fortepian extends Instrument
+{
+    public String dzwiek()
+    {
+        return " Szopen na fortepianie ";
+    };
+    public Fortepian(String producent,LocalDate dataProdukcji)
+    {
+        super(producent,dataProdukcji);
+    }    
+}
+abstract class Skrzypce extends Instrument
+{
+    public String dzwiek()
+    {
+        return "gra";
+    };
+    public Skrzypce(String producent,LocalDate dataProdukcji)
+    {
+        super(producent,dataProdukcji);
+    }
+}
+//test zad 3 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public class TestInstrumenty {
+        public static void main(String[] args)
+        {
+            ArrayList<String> orkiestra = new ArrayList<String>();
+            Instrument[] instrumenty = new Instrument[5];
+            instrumenty[0] = new Flet("x",LocalDate.of(2001,11,12)){};
+            instrumenty[1] = new Fortepian("x",LocalDate.of(2004,11,12)){};
+            instrumenty[2] = new Skrzypce("x",LocalDate.of(2003,11,12)){};
+            instrumenty[3] = new Flet("x",LocalDate.of(2002,11,12)){};
+            instrumenty[4] = new Fortepian("x",LocalDate.of(2001,11,12)){};
+            for(int i=0;i<5;i++)
+            orkiestra.add(instrumenty[i].dzwiek());
+
+            for(int i = 0; i < orkiestra.size(); i++)   
+                System.out.print(orkiestra.get(i));
+        }      

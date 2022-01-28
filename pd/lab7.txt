@@ -1,0 +1,193 @@
+//zad 1
+package pl.Piotr.Deptuła;
+public class PunktTest {
+    public static void main(String[] args) {
+	NazwanyPunkt p1 = new NazwanyPunkt(3,4,"x1");
+    p1.show();
+    Punkt p2 = new Punkt(4,1);
+    Punkt p3 = new NazwanyPunkt(3,1,"x2");
+    p2.show();
+    p3.show();
+    }
+}
+class Punkt{
+    int x;
+    int y;
+    public Punkt(int x,int y)
+    {
+        this.x=x;
+        this.y= y;
+    }
+    public void show()
+    {
+        System.out.println(x + ", "+ y);
+    }
+    public int x()
+    {
+        return x;
+    }
+    public int y()
+    {
+        return y;
+    }
+}
+class NazwanyPunkt extends Punkt{
+    private String name;
+    public NazwanyPunkt(int x, int y, String name)
+    {
+        super(x,y);
+        this.name = name;
+    }
+    public void show()
+    {
+        System.out.println(name+ ";" + x + ", "+ y + ";");
+    }
+}
+//zad 2 3
+package pl.Deptuła.Piotr;
+
+public class Adresy{
+    public static void main(String[] args) {
+        Adres a1 = new Adres("Nowogrodzka",11,2,"Warsaw","1111");
+        Adres a2 = new Adres("woka",2,"Olszte","1122");
+        a1.pokaz();
+        a2.pokaz();
+        System.out.println(a1.przed(a2)? "prawda":"klamstwo");
+    }
+}
+class Adres
+{    private String ulica;
+    private int numer_domu;
+    private int numer_mieszkania;
+    private String miasto;
+    private String kod_pocztowy;
+    public Adres(String ulica,int numer_domu,int numer_mieszkania,String miasto,String kod_pocztowy)
+    {
+        this.ulica = ulica;
+        this.numer_domu = numer_domu;
+        this.numer_mieszkania = numer_mieszkania;
+        this.miasto = miasto;
+        this.kod_pocztowy=kod_pocztowy;
+    }
+    public Adres(String ulica,int numer_domu,String miasto,String kod_pocztowy)
+    {
+        this.ulica = ulica;
+        this.numer_domu=numer_domu;
+        this.miasto=miasto;
+        this.kod_pocztowy=kod_pocztowy;
+    }
+    public void pokaz()
+    {
+        System.out.println(kod_pocztowy+" "+miasto);
+        System.out.println(ulica+" "+numer_domu+" "+numer_mieszkania);
+    }
+    public boolean przed(Adres a2)
+    {
+        Integer a1 = Integer.valueOf(this.kod_pocztowy);
+        Integer kod2 = Integer.valueOf(a2.kod_pocztowy);
+        if(a1>kod2)
+        {
+            return true;
+        }
+        return false;
+    }
+}
+//ZAD 4 
+package pl.Deptuła.Piotr;
+public class osobatest {
+
+    public static void main(String[] args) {
+	Osoba a = new Osoba("War",22);
+	Student b = new Student("Saw",3,"Warsaw");
+	Nauczyciel c = new Nauczyciel("Jusue",392,5);
+	System.out.println(a);
+	System.out.println(b);
+	System.out.println(c);
+	System.out.println(a.Nazwisko());
+	System.out.println(b.Kierunek());
+	System.out.print(c.Nazwisko());
+	System.out.print(c.Pensja());
+    System.out.println("zł");
+	System.out.println(c.Nazwisko());
+    }
+}
+class Osoba{
+    String nazwisko;
+    int rokU;
+    public Osoba(String nazwisko,int rokU)
+    {
+        this.nazwisko = nazwisko;
+        this.rokU = rokU;
+    }
+    public String toString()
+    {
+        return nazwisko+" "+rokU;
+    }
+    public String Nazwisko()
+    {
+        return nazwisko;
+    }
+}
+class Student extends Osoba
+{
+    String kierunek;
+    public Student(String nazwisko, int rokU, String kierunek)
+    {
+        super(nazwisko,rokU);
+        this.kierunek = kierunek;
+    }
+    public String toString()
+    {
+        return nazwisko+" "+rokU+" "+kierunek;
+    }
+    public String Kierunek()
+    {
+        return kierunek;
+    }
+}
+class Nauczyciel extends Osoba
+{
+    int pensja;
+    public Nauczyciel(String nazwisko,int rokU,int pensja)
+    {
+        super(nazwisko,rokU);
+        this.pensja=pensja;
+    }
+    public String toString()
+    {
+        return nazwisko+" "+rokU+" "+pensja;
+    }
+    public int Pensja()
+    {
+        return pensja;
+    }
+}
+//zad 7 
+package pl.Piotr.Deptuła;
+public class retangle {
+    public static void main(String[] args) {
+	BetterRectangle a = new BetterRectangle(3,6);
+    BetterRectangle b = new BetterRectangle(3,4);
+	System.out.println(a.area());
+	System.out.println(a.perimeter());
+    System.out.println(b.area());
+	System.out.print(b.perimeter());
+    }
+}
+class BetterRectangle extends java.awt.Rectangle {
+
+    public BetterRectangle(int loc,int size) {
+    super(loc,size);
+    }
+    public int area()
+    {
+        int wynik=(int)(getWidth()*getHeight());
+        return wynik;
+    }
+    public int perimeter()
+    {
+        int wynik=(int)(2*(getWidth()*getHeight()));
+        return wynik;
+    }
+
+}

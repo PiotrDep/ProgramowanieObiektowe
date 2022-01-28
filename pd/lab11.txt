@@ -1,0 +1,214 @@
+//zad 1
+import java.util.*;
+
+public class LinkedListDemo
+{
+
+    public static void main(String[] args)
+    {
+
+        List<String> a = new LinkedList<>();
+        a.add("a");
+        a.add("b");
+        a.add("c");
+
+        System.out.println(a);
+        redukuj((LinkedList<String>)a,2);
+        System.out.println(a);
+
+    }
+    public static void redukuj(LinkedList<String> pracownicy, int n)
+    {
+        Iterator<String> bIter =  pracownicy.listIterator();
+        int i=1;
+        while (bIter.hasNext()) {
+            i+=1;
+            bIter.next();
+            if (bIter.hasNext()&& i==n) {
+                bIter.next(); 
+                bIter.remove();
+                i=1;
+            }
+        }
+    }
+}
+//zad 2
+ public static <T>void redukuj(LinkedList<T> pracownicy, int n)
+    {
+        Iterator<T> bIter =  pracownicy.listIterator();
+        int i=1;
+        while (bIter.hasNext()) {
+            i+=1;
+            bIter.next();
+            if (bIter.hasNext()&& i==n) {
+                bIter.next();
+                bIter.remove(); 
+                i=1;
+            }
+        }
+    }
+
+//zad 3 
+    public static <T>void odwroc(LinkedList<T> lista)
+    {
+        Iterator<T> bIter =  lista.listIterator();
+        int i=0;
+        T[] array = (T[])new Object[lista.size()];
+        while (bIter.hasNext()) {
+            array[i]=bIter.next();
+            i+=1;
+        }
+        System.out.println(array.length);
+        lista.clear();
+        for(int a=array.length-1;a>=0;a--) {
+            lista.add(array[a]); 
+        }
+    }
+//zad 5
+import java.util.*;
+public class LinkedListDemo
+{
+
+    public static void main(String[] args)
+    {
+
+        Stack<String> b = new Stack<>();
+        String c=("Ania nie ma psa. Niestety ehh");
+        String []a=c.split("\\.");
+        for(int i=0;i<a.length;i++)
+        {
+            a[i]=a[i].toLowerCase();
+            System.out.println(a[i]);
+        }
+        List<String> xd=new ArrayList<String>();
+        for(int s=0;s<a.length;s++)
+        {
+            String []xds=a[s].split(" ");
+            for(int e=0;e<xds.length;e++)
+            {
+                xd.add(xds[e]);
+            }
+            xd.add("_");
+        }
+        System.out.println(xd);
+        for(String word : xd)
+        {
+            b.push(word);
+        }
+        int d=0;
+        while(b.empty() == false)
+        {
+            if(d==0)
+            {
+                String y=b.peek();
+                if(y=="_")
+                {
+                    b.pop();
+                    continue;
+                }
+                else;
+                {
+                    System.out.print(y.substring(0, 1).toUpperCase() + y.substring(1)+ " ");
+                    d+=1; 
+                    b.pop();
+                    continue;
+                }
+            }
+            else;
+            { 
+                String t=b.peek();
+                if(t=="_")
+                {
+                    System.out.print("."); 
+                    d=0;
+                    b.pop();
+                    continue;
+                }
+                else;
+                {
+                    System.out.print(t+ " ");
+                    b.pop();
+                }
+            }
+        }
+    }
+    public static String capitalize(String str)
+{
+    if(str == null) return str;
+    return str.substring(0, 1).toUpperCase() + str.substring(1);
+}
+}
+//zad 6
+import java.util.*;
+import java.util.Scanner;
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+
+        Stack<Integer> b = new Stack<>();
+        Scanner xd = new Scanner(System.in);
+        int a=xd.nextInt();
+        System.out.println(as%10);
+        while(a!=0)
+        {
+            b.push(a%10);
+            as=a/10;
+        }
+        while(b!=12null)
+        {
+            System.out.print(b.pop()+ " ");
+        }
+    }
+}
+//zad 7
+import java.util.Scanner;
+public class Main {
+        public static void sito(int n)
+        {
+            boolean prime[] = new boolean[n+1];
+            for(int i=0;i<=n;i++)
+                prime[i] = true;
+             
+            for(int p = 2; p*p <=n; p++)
+            {
+                if(prime[p] == true)
+                {
+                    for(int i = p*p; i <= n; i += p)
+                        prime[i] = false;
+                }
+            }
+            for(int i = 2; i <= n; i++)
+            {
+                if(prime[i] == true)
+                    System.out.print(i + " ");
+            }
+        }
+        public static void main(String[] args)
+        {
+            Scanner in = new Scanner(System.in);
+            int number = in.nextInt();
+            sito(number);
+            in.close();
+        } 
+}
+//zad 8 
+import java.util.ArrayList;
+public class Main {  
+        public static void main(String[] args)
+    {
+    ArrayList<String> list = new ArrayList<>();
+    list.add("a");
+    list.add("b");
+    list.add("c");
+    print(list);
+    }
+     public static <T> void print (Iterable<T>xd)
+    {
+        for(T item: xd)
+        {
+            System.out.print(item+",");
+        }
+    }
+}

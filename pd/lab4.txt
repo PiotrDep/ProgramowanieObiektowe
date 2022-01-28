@@ -1,0 +1,399 @@
+//zad 1
+zad 1 /a
+import java.util.Scanner;
+
+public class Main {
+    public static int  countChar(String str, char c)
+    {
+        int a=0;
+        for (int i=0;i<str.length();i++)
+        {
+            if(str.charAt(i)==c)
+            {
+                a += 1;
+            }
+        }
+        return a;
+    }
+    public static void main(String[] args)
+    {
+        String x="axa";
+        char Chair = 'a';
+        System.out.println(countChar(x,Chair));
+    }
+}
+//zad 1b
+import java.util.Scanner;
+
+public class Main {
+    public static int  countChar(String str, String c)
+    {
+        int a=0;
+        int b=0;
+        for (int i=0;i<str.length();i++)
+        {
+                if (str.charAt(i) == c.charAt(0))
+                {
+                    int t=i;
+                    for (int j=0;j<c.length();j++)
+                    {
+                        if (str.charAt(t) != c.charAt(a)) {
+                            a = 0;
+                            continue;
+                        }
+                        t++;
+                        a++;
+                    }
+                    if(a==c.length()) {
+                        b++;
+                        a=0;
+                    }
+                    else{
+                        a=0;
+                    }
+                }
+        }
+        return b;
+    }
+    public static void main(String[] args)
+    {
+        String a="xddddd";
+        String a2="xdddd";;
+        System.out.println(countChar(a,a2));
+    }
+}
+/zad 1c
+import java.util.Scanner;
+
+public class Main {
+    public static String  countChar(String str)
+    {
+        for (int i=0;i<str.length();i++)
+        {
+                if (str.length()%2!=0)
+                {
+                    return str.substring(str.length()-(str.length()/2)-1,str.length()-(str.length()/2));
+                }
+                else{
+                    return str.substring(str.length()-(str.length()/2)-1,str.length()-(str.length()/2)+1);
+                }
+        }
+        return str;
+    }
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        String t = scan.nextLine();
+        System.out.println(countChar(t));
+    }
+}
+//zad 1d
+import java.util.Scanner;
+
+public class Main {
+    public static String  countChar(String str,int n)
+    {
+        String r = new String(new char[n]).replace("\0", str);
+        return r;
+    }
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        String a = scan.nextLine();
+        int n = scan.nextInt();
+        System.out.println(countChar(a,n));
+    }
+}
+//zad 1e
+import java.util.Scanner;
+
+public class Main {
+    public static int[]  countChar(String str, String c)
+    {
+        int[] anArray;
+        int a=0;
+        int b=0;
+        anArray = new int [str.length()];
+        for (int i=0;i<str.length();i++)
+        {
+            if (str.charAt(i) == c.charAt(0))
+            {
+                int t=i;
+                for (int j=0;j<c.length();j++)
+                {
+                    if (str.charAt(t) != c.charAt(a)) {
+                        a = 0;
+                        continue;
+                    }
+                    t++;
+                    a++;
+                }
+                if(a==c.length()) {
+                    anArray[i]=1;
+                    b++;
+                    a=0;
+                }
+                else{
+                    a=0;
+                }
+            }
+        }
+        return anArray;
+    }
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        String a = scan.nextLine();
+        String b= scan.nextLine();
+        int[] anArray;
+        anArray =countChar(a,b);
+        for(int i=0;i<xd.length();i++)
+        {
+            System.out.println(anArray[i]);
+        }
+    }
+//zad 1f
+import java.util.Scanner;
+
+public class Main {
+ public static  String change(String str)
+    {
+        StringBuffer sb = new StringBuffer();
+        sb.append(str);
+        for(int i=0;i<sb.length();i++)
+            if (sb.charAt(i)>= 'A' && sb.charAt(i)<= 'Z')
+                sb.setCharAt(i, Character.toLowerCase(sb.charAt(i)));
+            else if (sb.charAt(i) >= 'a' && sb.charAt(i)<= 'z')
+                sb.setCharAt(i, Character.toUpperCase(sb.charAt(i)));
+
+        return sb.toString();
+    }
+public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        String str = in.nextLine();
+       System.out.println(change(str));
+
+       in.close();
+    }
+}
+//zad 1g
+
+import java.util.Scanner;
+public class Main {
+    public static   String nice(String str)
+    {
+        int a=0;
+        StringBuffer sb = new StringBuffer();
+        sb.append(str);
+            for (int i = str.length(); i >=0; i--)
+            {
+                if(a==3)
+                {
+                    sb.insert(i, "`");
+                    a=0;
+                }
+                a++;
+            }
+            String xd=sb.toString();
+            return xd;
+    }
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        String xd = scan.nextLine();
+        System.out.println(nice(xd));
+
+    }
+}
+//zad 1h
+import java.util.Scanner;
+public class Main {
+    public static   String nice(String str,int n,char d)
+    {
+        int a=0;
+        StringBuffer sb = new StringBuffer();
+        sb.append(str);
+            for (int i = str.length(); i >=0; i--)
+            {
+                if(a==n)
+                {
+                    sb.insert(i, d);
+                    a=0;
+                }
+                a++;
+            }
+            String xd=sb.toString();
+            return xd;
+    }
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        String xd = scan.nextLine();
+        char c = scan.next().charAt(0);
+        int xd2 = scan.nextInt();
+        System.out.println(nice(xd,xd2,c));
+
+    }
+}
+//zad 2
+import java.util.Scanner;
+import java.io.File;
+import java.io.*;
+import java.io.FileInputStream;
+
+public class Main{
+        public static int  nice(File x, char c) throws IOException
+        {
+            FileInputStream t = new FileInputStream(x);
+            InputStreamReader inputStreamReader = new InputStreamReader(t);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String line;
+            int a=0;
+            while((line = bufferedReader.readLine()) != null)
+            {
+                String str = line;
+                for (int i=0;i<str.length();i++)
+                {
+                    if(str.charAt(i)==c)
+                    {
+                        a +=1;
+                    }
+                }
+            }
+            return a;
+        }
+    public static void main(String[] args)throws Exception
+    {
+        File file = new File("jakistext.txt");
+        Scanner scan = new Scanner(System.in);
+        char c = scan.next().charAt(0);
+        System.out.println(nice(file,c));
+        scan.close();
+    }
+}
+//zad 3 
+import java.util.Scanner;
+import java.io.File;
+import java.io.*;
+import java.io.FileInputStream;
+
+public class Main{
+        public static int  nice(File x, String c) throws IOException
+        {
+            FileInputStream t = new FileInputStream(x);
+            InputStreamReader inputStreamReader = new InputStreamReader(t);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String line;
+            int a=0;
+            int b=0;
+            while((line = bufferedReader.readLine()) != null)
+            {
+                String str=line;
+                for (int i=0;i<str.length();i++)
+                {
+                    if (str.charAt(i) == c.charAt(0))
+                    {
+                        int q=i;
+                        for (int j=0;j<c.length();j++)
+                        {
+                            if (str.charAt(q) != c.charAt(a)) {
+                                a = 0;
+                                continue;
+                            }
+                            a++;
+                            q++;
+                            if(q==str.length())
+                            {
+                                break;
+                            }
+                        }
+                        if(a==c.length()) {
+                            b+=1;
+                            a=0;
+                        }
+                        else{
+                            a=0;
+                        }
+                    }
+                }
+            }
+            return y;
+        }
+    public static void main(String[] args)throws Exception
+    {
+        File file = new File("AS.txt");
+        Scanner scan = new Scanner(System.in);
+        String c = scan.nextLine();
+        System.out.println(nice(file,c));
+        scan.close();
+    }
+}
+//zad 4 
+import java.util.Scanner;
+import java.io.*;
+import java.math.BigInteger;
+
+public class ZAD4 {
+    public static BigInteger  nice(int n) throws Exception
+        {
+            int a=1;
+            BigInteger sum=new BigInteger("0");
+            int arr[][]=new int [n][n];
+                for (int i=0;i<n;i++)
+                {
+                    for (int j=0;j<n;j++)
+                        {
+                            String alpha= Integer.toString(a);
+                            BigInteger suma= new BigInteger("0");
+                            BigInteger sa=new BigInteger(alpha);
+                            suma.add(sa);
+                            sum=sum.add(sa);
+                            arr[i][j]=a;
+                            a*=2;
+                        }
+                    }
+                    return sum;
+                }
+                public static void main(String[] args)throws Exception
+                {
+                    Scanner scan = new Scanner(System.in);
+                    int n = scan.nextInt();
+                    System.out.println(nice(n));
+                    scan.close();
+                }
+}
+//zad 5
+import java.util.Scanner;
+import java.io.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.RoundingMode;
+
+public class ZAD5{
+        public static BigDecimal  nice(Double k,double n,Float p) throws Exception
+        {
+            BigDecimal suma= BigDecimal.ZERO;
+                for (int i=0;i<n;i++)
+                {
+                        String poczatkowa= Double.toString(k);
+                        BigDecimal x=new BigDecimal(poczatkowa);
+                        String alpha= Float.toString(p);
+                        BigDecimal procent=new BigDecimal(alpha);
+                        BigDecimal procenta=x.multiply(procent);
+                        suma = x.add(procenta);
+                        k=k+(k*p);
+                }
+                return  suma.setScale(2, RoundingMode.HALF_UP);
+            }
+
+    public static void main(String[] args)throws Exception
+    {
+        Scanner scan = new Scanner(System.in);
+        double kw = scan.nextDouble();
+        double ni = scan.nextDouble();
+        Float pr = scan.nextFloat();
+        System.out.println(nice(kw,ni,pr));
+        scan.close();
+    }
+}

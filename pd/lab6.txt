@@ -1,0 +1,140 @@
+//zad 1
+public class Main {
+
+    public static void main(String[] args) {
+	RachunekBankowy saver1 = new RachunekBankowy(2000,0.04);
+	RachunekBankowy saver2 = new RachunekBankowy(3000,0.04);
+	System.out.println(saver1.obliczMiesieczneOdsetki());
+	System.out.println(saver2.obliczMiesieczneOdsetki());
+    }
+}
+class RachunekBankowy{
+    private double saldo;
+    static double rocznaStopaProcentowa;
+    public RachunekBankowy(double saldo,double rocznaStopaProcentowa)
+    {
+        this.saldo = saldo;
+        RachunekBankowy.rocznaStopaProcentowa = rocznaStopaProcentowa;
+    }
+    public double obliczMiesieczneOdsetki()
+    {
+        double odsetki;
+        odsetki = (this.saldo * RachunekBankowy.rocznaStopaProcentowa)/12;
+        return odsetki;
+    }
+}
+//zad 2
+public class IntegerSet {
+    private boolean[] a = new boolean[101];
+
+    public IntegerSet(){
+        for(int i = 0; i<101; i++){
+            this.a[i]=false;
+        }
+    }
+    static int union(IntegerSet seta, IntegerSet setb){
+        int sum = 0;
+        for(int i = 1; i<101; i++){
+            if(seta.a[i]==true || setb.a[i]==true){
+                sum++;
+            }
+        }
+        return sum;
+    }
+    static int intersection(IntegerSet seta, IntegerSet setb){
+        int suma = 1;
+        for(int i = 1; i<101; i++){
+            if(seta.a[i] ==true || setb.a[i]==true){
+                suma++;
+            }
+        }
+        return suma;
+    }
+    public void insertElement(int ele){
+        this.a[ele] = true;
+    }
+    public void deleteElement(int ele){
+        this.a[ele] = false;
+    }
+    public String toSting(){
+        var Strings = new StringBuffer();
+        for(int i = 1; i<100; i++){
+            if(this.a[i]==true){
+                Strings.append(i+"  ");
+            }
+        }
+        String res = Strings.toString();
+        return res;
+    }
+    public boolean equals(IntegerSet set){
+        for(int i=1; i<101; i++){
+            if(!(this.a[i]==set.a[i]))
+                return false;
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        IntegerSet seta = new IntegerSet();
+        IntegerSet setb = new IntegerSet();
+        for(int i = 10; i<=30; i++){
+            seta.insertElement(i);
+        }
+        for(int i = 10; i<=30; i++){
+            setb.insertElement(i);
+        }
+        System.out.println(union(seta, setb));
+        System.out.println(intersection(seta,setb));
+        System.out.println(seta.toSting());
+        System.out.println(setb.toSting());
+        System.out.println(seta.equals(setb));
+    }
+}
+//zad 3
+import java.time.LocalDate;
+
+public class Pracownik1 {
+
+    public static void main(String[] args) {
+        Pracownik[] zaloga = new Pracownik[3];
+        zaloga[0] = new Pracownik("War", 21, 1333, 11, 12);
+        zaloga[1] = new Pracownik("test", 33, 1111, 4, 21);
+        zaloga[2] = new Pracownik("test2", 42, 2222, 1, 25);
+        for (Pracownik i : zaloga) {
+            i.zwiekszPobory(20);
+        }
+        for (Pracownik i : zaloga) {
+            System.out.print(i.nazwisko() + " hajs " + i.pobory());
+            System.out.println(i.dataZatrudnienia());
+        }
+        System.out.println();
+        for (Pracownik i : zaloga) {
+            System.out.println(i.nazwisko() + " hajs " + i.pobory());
+            System.out.println(i.dataZatrudnienia());
+        }
+    }
+}
+
+class Pracownik {
+
+    public Pracownik(String nazwisko, double pobory, int year, int month, int day) {
+        this.nazwisko = nazwisko;
+        this.pobory = pobory;
+        dataZatrudnienia = LocalDate.of(year,month,day);
+    }
+    public String nazwisko() {
+        return nazwisko;
+    }
+    public double pobory() {
+        return pobory;
+    }
+    public LocalDate dataZatrudnienia() {
+        return dataZatrudnienia;
+    }
+    public void zwiekszPobory(double procent) {
+        double podwyzka = pobory * procent / 100;
+        pobory += podwyzka;
+    }
+    private String nazwisko;
+    private double pobory;
+    private LocalDate dataZatrudnienia;
+}

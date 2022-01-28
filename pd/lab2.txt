@@ -1,0 +1,232 @@
+//zad 1 
+import java.util.Scanner;
+
+public class Main {
+    public static int silnia(int n) {
+        int iloczyn = 1;
+        for(int i = 1; i <= n; i++) {
+            iloczyn *= i;
+        }
+        return iloczyn;
+    }
+    public static void main(String[] args) {
+  
+        Scanner scam = new Scanner(System.in);
+        int n = scam.nextInt();
+        double[] liczby = new double[n];
+        for(int i=0;i<n;i++)
+        liczby[i]= scam.nextInt();
+
+        double sA=0;
+        double sC=0;
+        double sD=0;
+        double sF=0;
+        double sG=0;
+        double iB=1;
+        double iE=1;
+        double iG=1;
+        double rH= 0;
+        double rI = 0;
+
+        for(int i=0;i<n;i++)
+        {
+            sA+=liczby[i];
+            iB*=liczby[i];
+            sC+=Math.abs(liczby[i]);
+            sD+=Math.sqrt(Math.abs(liczby[i]));
+            iE*=Math.abs(liczby[i]);
+            sF+=Math.pow(liczby[i],2);
+            sG+=liczby[i];
+            iG*=liczby[i];
+            rH-=Math.pow(-1,i+2)*liczby[i];
+            rI-=(Math.pow(-1,i+1)*liczby[i])/(silnia(i+1));
+        }
+        System.out.println("A)"+sA);
+        System.out.println("B)"+iB);
+        System.out.println("C)"+sC);
+        System.out.println("D)"+sD);
+        System.out.println("E)"+iE);
+        System.out.println("F)"+sF);
+        System.out.println("G)"+sG);
+        System.out.println("G)"+iG);
+        System.out.println("H)"+rH);
+        System.out.println("I)"+rI);
+        scam.close();
+    }
+}
+//zad 2 
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    Scanner x = new Scanner(System.in);
+    System.out.println("Podaj liczbe naturalną :");
+    int n = x.nextInt();
+    double[] liczby = new double[n];
+    for(int i=0;i<n;i++)
+    liczby[i]= in.nextInt();
+    
+    for(int i=1;i<n;i++)
+    System.out.println(liczby[i]);
+    System.out.println(liczby[0]);
+    x.close();
+}
+}
+//zad 2
+import java.util.Scanner;
+
+public class Main {
+    public static int silnia(int n) {
+        int iloczyn = 1;
+        for(int i = 1; i <= n; i++) {
+            iloczyn *= i;
+        }
+        return iloczyn;
+    }
+    public static void main(String[] args) { 
+    Scanner x = new Scanner(System.in);
+    int n = x.nextInt();
+    double[] liczby = new double[n];
+    for(int i=0;i<n;i++)
+    liczby[i]= x.nextInt();
+    int A = 0;
+    int B = 0;
+    int C = 0;
+    int D = 0;
+    int E = 0;
+    int F = 0;
+    int G = 0;
+    int H = 0;
+    for(int i=0;i<n;i++)
+    {
+        if(liczby[i]%2!=0)
+            A++;
+        if(liczby[i]%3==0 && liczby[i]%5!=0)
+            B++;
+        if(liczby[i]*liczby[i]%2==0)
+            C++;
+        if(liczby[i]%2!=0 && liczby[i]>0)
+            G++;
+    }
+    
+    for(int i=1;i<n-1;i++)
+    {
+        if(liczby[i]<(liczby[i-1]+liczby[i+1]/2))
+        D++;
+
+        if(liczby[i]>Math.pow(2,i) && liczby[i]<silnia(i))
+        E++;
+
+        if(i%2!=0 && liczby[i]%2==0)
+        F++;
+
+        if(Math.abs(liczby[i])<Math.pow(i,2));
+        H++;
+    }
+    System.out.println("A)"+A);
+    System.out.println("B)"+B);
+    System.out.println("C)"+C);
+    System.out.println("D)"+D);
+    System.out.println("E)"+E);
+    System.out.println("F)"+F);
+    System.out.println("G)"+G);
+    System.out.println("H)"+H);
+    x.close();
+}
+}
+zad 2.2
+import java.util.Scanner;
+import static java.lang.Math.*;
+public class Main {
+
+public static void main(String[] args) {
+int counter = 0;
+    	double wynik;
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        double[] liczby = new double[n];
+      for(int i = 0; i<=liczby.length-1; i++){
+         liczby[i] = scn.nextDouble();
+           if(liczby[i] > 0)
+             counter+=2*liczby[i];
+     }
+      System.out.println(counter);
+}
+}
+//zad 2.3 
+import java.util.Scanner;
+import static java.lang.Math.*;
+public class Main {
+
+public static void main(String[] args) {
+int counter = 0;
+    	double wynik;
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        double[] liczby = new double[n];
+int z = 0, p = 0, m = 0;
+for(int i = 0; i<=liczby.length-1; i++){
+         liczby[i] = scn.nextDouble();
+          if(liczby[i] == 0)
+               z++;
+           if(liczby[i] < 0)
+               m++;
+           if(liczby[i] > 0)
+               p++;
+       }
+       System.out.println(plus+" "+minus+" "+zeros);
+}
+}
+//zad 2.4
+import java.util.Scanner;
+import static java.lang.Math.*;
+public class Main {
+
+public static void main(String[] args) {
+int counter = 0;
+    	double wynik;
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        double[] liczby = new double[n];
+     double max, min;
+
+       for(int i = 0; i<=liczby.length-1; i++){
+          liczby[i] = scn.nextDouble();
+
+       }
+      min = liczby[0];
+      max = liczby[0];
+       for(int i = 0; i<=liczby.length-1;i++)
+             if(i > 0) {
+                 if (liczby[i] > max)
+                     max = liczby[i];
+                 if(liczby[i] < min)
+                      min = liczby[i];
+               }
+
+     System.out.println(min+ "\n" + max);
+}
+}
+//zad 2.5
+
+import java.util.Scanner;
+import static java.lang.Math.*;
+public class Main {
+
+public static void main(String[] args) {
+	int count = 0;
+    	double wynik;
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        double[] liczby = new double[n];
+       for(int i = 0; i<=liczby.length-1; i++){
+            liczby[i] = scn.nextDouble();
+
+       }
+        for(int i = 0; i<=liczby.length-2;i++){
+           if(liczby[i] > 0 && liczby[i+1] > 0)
+                count++;
+        }
+        System.out.println(count);
+    }
+}
